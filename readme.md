@@ -1,4 +1,5 @@
 Week 7 - Challenge WeekEnd
+
 Red social Crea una red social con React. La aplicación sólo se puede usar estando logueado (en abierto únicamente se puede ver login y registro), y una vez iniciada la sesión, el usuario puede ver un listado de todos los usuarios de la red.
 
 El usuario podrá editar su perfil.
