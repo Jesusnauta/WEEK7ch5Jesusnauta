@@ -1,25 +1,23 @@
-import createDebug from 'debug';
 import http from 'http';
 import { app } from './app.js';
 import { dbConnect } from './db/db.connect.js';
-// TEM import { dbConnect } from './db/db.connect.js';
-const debug = createDebug('W7CH5:index');
+import createDebug from 'debug';
 
-const PORT = process.env.PORT || 3500;
-
+const debug = createDebug('W7CH5');
+const PORT = process.env.PORT || 4200;
 const server = http.createServer(app);
 
 dbConnect()
   .then((mongoose) => {
     server.listen(PORT);
-    debug('DB:', mongoose.connection.db.databaseName);
+    debug('DB: ', mongoose.connection.db.databaseName);
   })
   .catch((error) => server.emit('error', error));
 
 server.on('error', (error) => {
-  debug('Server error:', error.message);
+  debug('Server error', error.message);
 });
 
 server.on('listening', () => {
-  debug('Listening in http://localhost:' + PORT);
+  debug('Listening http://localhost:' + PORT);
 });
