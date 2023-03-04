@@ -1,12 +1,12 @@
 {
-  "name": "week6ch5",
+  "name": "week7ch5",
   "version": "1.0.0",
   "description": "Node Server",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "cross-env DEBUG=W6* PORT=3500 node ./dist/index.js -w",
-    "start:mon": "cross-env DEBUG=W6* PORT=3500 nodemon ./dist/index.js",
+    "start": "cross-env DEBUG=W7* PORT=3500 node ./dist/index.js -w",
+    "start:mon": "cross-env DEBUG=W7* PORT=3500 nodemon ./dist/index.js",
     "build": "tsc -w",
     "test": "jest --watchAll --coverage",
     "test:prod": "jest --watchAll --coverage --watchAll=false --passWithNoTests"
