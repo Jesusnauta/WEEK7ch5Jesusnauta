@@ -45,10 +45,6 @@ app.use(
 );
 
 app.use('*', (_req, resp, next) => {
-  resp
-    .status(404)
-    .send(
-      `<h1>Sorry, the path is not valid. Did you mean "http://localhost:4200/users/"?<h1>`
-    );
+  resp.status(404).send(`<h1>Sorry, the path is not valid<h1>`);
   next();
 });
