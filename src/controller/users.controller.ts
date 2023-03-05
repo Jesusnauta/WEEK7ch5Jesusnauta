@@ -40,7 +40,6 @@ export class UsersController {
         );
 
       req.body.password = await Auth.hash(req.body.password);
-
       req.body.friends = [];
       req.body.enemies = [];
 
@@ -130,9 +129,9 @@ export class UsersController {
     }
   }
 
-  async removeFriends(req: RequestPlus, resp: Response, next: NextFunction) {
+  async deleteFriends(req: RequestPlus, resp: Response, next: NextFunction) {
     try {
-      debug('removeFriends method');
+      debug('deleteFriends method');
 
       const userId = req.info?.id;
 
