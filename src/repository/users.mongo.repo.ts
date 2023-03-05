@@ -1,4 +1,4 @@
-import { UserStructure } from '../entities/user';
+import { UserStructure } from '../entities/user.js';
 import { HTTPError } from '../errors/errors.js';
 import { Repo } from './repo.interface';
 import { UserModel } from './users.mongo.model.js';
@@ -18,7 +18,7 @@ export class UsersMongoRepo implements Repo<UserStructure> {
   }
 
   private constructor() {
-    debug('Users-Repo instanced');
+    debug('Users:Repo instanced');
   }
 
   async query(): Promise<UserStructure[]> {
@@ -76,7 +76,7 @@ export class UsersMongoRepo implements Repo<UserStructure> {
   }
 
   async destroy(id: string): Promise<void> {
-    debug('destroy method');
+    debug('delete method');
     const data = await UserModel.findByIdAndDelete(id);
     if (!data)
       throw new HTTPError(
