@@ -3,13 +3,14 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
 jest.mock('bcryptjs');
-jest.mock('jsonwebtoken');
-jest.mock('../config.js', () => ({
-  _dirname: 'test',
+
+jest.mock('../config', () => ({
+  __dirname: 'testdir',
   config: {
-    secret: 'test',
+    jwtSecret: 'a',
   },
 }));
+jest.mock('jsonwebtoken');
 
 describe('Given the Auth class', () => {
   afterEach(() => {

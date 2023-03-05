@@ -6,12 +6,15 @@ import { HTTPError } from '../errors/errors.js';
 export interface PayloadToken extends jwt.JwtPayload {
   id: string;
   email: string;
-  role: string;
 }
 
 const salt = 10;
 
 export class Auth {
+  static getTokenInfo(token: string) {
+    throw new Error('Method not implemented.');
+  }
+
   static createJWT(payload: PayloadToken) {
     return jwt.sign(payload, config.jwtSecret as string);
   }

@@ -1,24 +1,34 @@
-import { Schema, model, SchemaTypes } from 'mongoose';
-import { User } from '../entities/users';
+import { model, Schema } from 'mongoose';
+import { UserStructure } from '../entities/user.js';
 
-const userSchema = new Schema<User>({
+const userSchema = new Schema<UserStructure>({
   email: {
     type: String,
     required: true,
+    unique: true,
   },
+
+  userName: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+
   password: {
     type: String,
     required: true,
   },
+
   friends: [
     {
-      type: SchemaTypes.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'User',
     },
   ],
+
   enemies: [
     {
-      type: SchemaTypes.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'User',
     },
   ],
