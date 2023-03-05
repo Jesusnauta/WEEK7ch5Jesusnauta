@@ -3,6 +3,14 @@ import { logged, RequestPlus } from './logged';
 
 jest.mock('../services/auth.js');
 
+jest.mock('../config', () => ({
+  __dirname: 'testdir',
+  config: {
+    jwtSecret: 'a',
+  },
+}));
+jest.mock('jsonwebtoken');
+
 describe('Given the Logged function', () => {
   const req = {
     get: jest.fn(),
